@@ -1,13 +1,42 @@
 #include <parser_api.h>
+#include <node.h>
 
-hkparser::parser::parser(std::string formula) {
-    reload_formula(formula);
-}
+namespace hkparser
+{
+class parser::impl {
+  private:
+    std::vector<internal::node> nodes_;
+  public:
+    impl() = default;
+    virtual ~impl() = default;
 
-int hkparser::parser::reload_formula(std::string formula) {
+    int reload_formula(std::string formula);
+    int get_value(const std::vector<double> &values, double &result);
+};
+
+int parser::impl::reload_formula(std::string formula) {
     return 0;
 }
 
-int hkparser::parser::get_value(const std::vector<double> &values, double &result) {
+int parser::impl::get_value(const std::vector<double> &values, double &result) {
+    return 0;
+}
+
+parser::parser() : pimpl_(new impl) {}
+
+parser::parser(std::string formula) : parser() {
+    reload_formula(formula);
+}
+
+parser::~parser() = default;
+
+int parser::reload_formula(std::string formula) {
+    // return impl_->reload_formula(formula);
+    return 0;
+}
+
+int parser::get_value(const std::vector<double> &values, double &result) {
     return .0;
 }
+    
+} // namespace hkparser
