@@ -10,6 +10,8 @@ void test_1() {
     std::cout << nodes.size() << std::endl;
     assert(nodes.size() == 3 && "formual 1+2 must has 3 nodes");
     assert(nodes[0].get_node_type() == hkparser::node::node_type::is_number && "formula 1+2 [0] is not number");
+    assert(nodes[0].opt_type() == hkparser::node::operator_type::none && "formula 1+2 [0] opt type is not none");
+    assert(nodes[0].value() == 1.0 && "formula 1+2 [0] value is not 1.0");
 }
 
 void test_2() {
