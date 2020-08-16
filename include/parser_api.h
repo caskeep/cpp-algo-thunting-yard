@@ -1,5 +1,6 @@
 #pragma once
 
+#include <node.h>
 #include <string>
 #include <memory>
 #include <vector>
@@ -17,5 +18,6 @@ class parser {
 
     int reload_formula(std::string formula);
     int get_value(const std::vector<double> &values, double &result);
+    std::vector<node> get_nodes();
 };
 } // namespace hkparser
